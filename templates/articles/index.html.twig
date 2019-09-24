@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos articles{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="my-3">Voici les articles disponibles</h1>
+    <div class="row">
+        {% for article in articles %}
+            {% set url = path('articles_show', {'libelle':article.libelle}) %} 
+            <div class="col-md-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center">
+                        Prix de l'article : <strong>{{ article.prix }}€</strong> <br>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="{{url}}">
+                                {{ article.libelle }}                               
+                            </a>
+                        </h4>
+                        <a href="{{url}}"><p><img src="{{article.image}}" alt="Image de l'article" style="height: 80px; width:80px; display: block"></p></a>
+                        <a href="{{url}}" class="btn-secondary">Afficher les détails</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

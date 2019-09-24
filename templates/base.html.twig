@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TP Symfony - {% block title %}Bonjour{% endblock %}</title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+        {% block stylesheets %}{% endblock %}
+
+</head>
+<body>
+    {% include "partials/header.html.twig" %}
+
+    {% block body %}   
+    {% set url = path('articles_index') %} 
+        <div class="container">
+            <div class="jumbotron mt-4">
+                <h1 class="display-3">Bienvenue sur le TP de Kecir Yannis !</h1>
+                <p class="lead">Voici un petit site web permettant de gérer une liste d'article.</p>
+                <hr class="my-4">
+                <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{url}}" role="button">Afficher les articles</a>
+                </p>
+            </div>
+        </div>
+    {% endblock %}
+    
+    {% include "partials/footer.html.twig" %}
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    {% block javascripts %}{% endblock %}    
+</body>
+</html>

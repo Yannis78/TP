@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{article.libelle}}
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron mt-3">
+  <h1 class="display-5 mb-3">{{article.libelle}}</h1>
+  <p><img src="{{article.image}}" alt="Image de l'article"></p>
+  <p class="lead">{{article.description | raw}}</p>
+  <p>Le prix de l'article est de <strong>{{article.prix}}€</strong></p>
+</div>
+
+{% endblock %}
